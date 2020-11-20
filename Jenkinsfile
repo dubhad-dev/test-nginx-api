@@ -13,6 +13,8 @@ node {
     }
 
     stage('Push'){
-        image.push()
+        docker.withRegistry('https://index.docker.io/v1/', 'e5b26721-1837-46bb-9850-2408994f3110') {
+            image.push()
+        }
     }
 }
