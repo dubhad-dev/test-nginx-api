@@ -8,9 +8,6 @@ node {
 
     stage('Build'){
         def image = docker.build("dubhad/test-nginx-api:latest")
-    }
-
-    stage('Push'){
         image.push()
     }
 }
