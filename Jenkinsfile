@@ -6,8 +6,13 @@ node {
         checkout scm
     }
 
+    def dockerImage
+
     stage('Build'){
-        def image = docker.build("dubhad/test-nginx-api:latest")
+        image = docker.build("dubhad/test-nginx-api:latest")
+    }
+
+    stage('Push'){
         image.push()
     }
 }
