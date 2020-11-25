@@ -2,14 +2,12 @@
 
 node('docker') {
 
-    stage('Checkout'){
-        checkout scm
-    }
+    checkout scm
 
     def dockerImage
 
     stage('Build'){
-        dockerImage = docker.build("dubhad/test-nginx-api:latest")
+        dockerImage = dockers.build("dubhad/test-nginx-api:latest")
     }
 
     stage('Push'){
