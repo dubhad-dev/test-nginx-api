@@ -11,8 +11,8 @@ node('docker') {
     }
 
     stage('Test') {
-        dockerImage.inside {
-            sh 'curl -f http://localhost:8080'
+        dockerImage.withRun('-p 8080:8080') {
+            sh 'curl -f http://localhost:8080/api'
         }
     }
 
